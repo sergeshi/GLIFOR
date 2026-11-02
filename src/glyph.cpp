@@ -30,5 +30,5 @@ Glyph Glyph::fromJson(const QJsonObject &object) {
 }
 QString Glyph::displayName() const {
     if (!name.isEmpty()) return name;
-    return QString::fromUcs4(&codepoint, 1);
+    return QString::fromUcs4(reinterpret_cast<const char32_t *>(&codepoint), 1);
 }
