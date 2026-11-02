@@ -42,7 +42,7 @@ void GlyphCanvas::paintEvent(QPaintEvent *event) {
     for (int i = 1; i < m_glyph->points.size(); ++i) path.lineTo(toScreen(m_glyph->points.at(i)));
     if (m_glyph->closed && m_glyph->points.size() > 2) path.closeSubpath();
     painter.setPen(QPen(QColor("#d9e2f0"), 2));
-    painter.setBrush(m_glyph->closed ? QColor(91, 145, 190, 55) : Qt::NoBrush);
+    painter.setBrush(m_glyph->closed ? QBrush(QColor(91, 145, 190, 55)) : QBrush(Qt::NoBrush));
     painter.drawPath(path);
     painter.setBrush(QColor("#f0b35b"));
     painter.setPen(QPen(QColor("#20242b"), 1));
