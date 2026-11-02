@@ -154,7 +154,7 @@ void MainWindow::addGlyph() {
             return;
         }
     }
-    Glyph g; g.codepoint = cp; g.name = QString::fromUcs4(&cp, 1);
+    Glyph g; g.codepoint = cp; g.name = QString::fromUcs4(reinterpret_cast<const char32_t *>(&cp), 1);
     m_glyphs.append(g); refreshGlyphList(); m_glyphList->setCurrentRow(m_glyphs.size() - 1);
 }
 void MainWindow::openProject() {
